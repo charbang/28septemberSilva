@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagramas FlewGraph</title>
+
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -13,272 +15,138 @@
 
         body {
             min-height: 100vh;
-            background:
-                radial-gradient(circle at 20% 20%, rgba(0, 255, 200, 0.08), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(100, 0, 255, 0.08), transparent 30%),
-                #05080d;
 
-            color: #e8faff;
+            background: #111111;
+            color: #eeeeee;
+
             font-family: Arial, Helvetica, sans-serif;
 
             display: flex;
             flex-direction: column;
-
-            overflow: hidden;
         }
+
 
         header {
             height: 18vh;
-            min-height: 120px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            border-bottom: 1px solid rgba(0, 255, 200, 0.35);
+            background: #0b0b0b;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(0, 255, 200, 0.04),
-                    rgba(0, 0, 0, 0.4),
-                    rgba(130, 0, 255, 0.04)
-                );
-
-            position: relative;
+            border-bottom: 2px solid #555555;
         }
 
-        header::before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 10%;
-            width: 80%;
-            height: 1px;
+        header h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
 
-            background: #00ffd0;
-
-            box-shadow:
-                0 0 8px #00ffd0,
-                0 0 20px rgba(0, 255, 208, 0.5);
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 4.5rem);
             font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-
-            color: #f2f7f8;
-
-            text-shadow:
-                0 0 5px rgba(255,255,255,0.4),
-                0 0 20px rgba(0,255,208,0.25);
-        }
-
-        h1 span {
-            color: #00ffd0;
-
-            text-shadow:
-                0 0 8px #00ffd0,
-                0 0 25px rgba(0,255,208,0.5);
-        }
-
-
-        main {
-            flex: 1;
-
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 1.5rem;
-
-            padding: 2rem;
-
-            min-height: 0;
-        }
-
-
-        .diagram-button {
-            position: relative;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            text-decoration: none;
-
-            color: white;
-
-            border: 1px solid rgba(0, 255, 208, 0.45);
-            border-radius: 12px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(12, 25, 32, 0.95),
-                    rgba(5, 10, 16, 0.98)
-                );
-
-            overflow: hidden;
-
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.25s ease,
-                background 0.25s ease;
-        }
-
-
-        .diagram-button::before {
-            content: "";
-
-            position: absolute;
-            top: 0;
-            left: -100%;
-
-            width: 100%;
-            height: 2px;
-
-            background: #00ffd0;
-
-            box-shadow: 0 0 15px #00ffd0;
-
-            transition: left 0.4s ease;
-        }
-
-        .diagram-button::after {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            background-image:
-                linear-gradient(
-                    rgba(0,255,208,0.025) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(0,255,208,0.025) 1px,
-                    transparent 1px
-                );
-
-            background-size: 35px 35px;
-
-            pointer-events: none;
-        }
-
-        .diagram-button:hover {
-            transform: translateY(-8px) scale(1.015);
-
-            border-color: #00ffd0;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(10, 35, 40, 0.98),
-                    rgba(7, 14, 22, 0.98)
-                );
-
-            box-shadow:
-                0 0 15px rgba(0,255,208,0.2),
-                0 0 45px rgba(0,255,208,0.12),
-                inset 0 0 30px rgba(0,255,208,0.03);
-        }
-
-        .diagram-button:hover::before {
-            left: 100%;
-        }
-
-
-        .number {
-            font-size: 1rem;
-
-            color: #00ffd0;
-
-            letter-spacing: 0.25em;
-
-            margin-bottom: 1.5rem;
-
-            opacity: 0.8;
-        }
-
-        .icon {
-            width: 85px;
-            height: 85px;
-
-            border: 1px solid rgba(0,255,208,0.5);
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 2.3rem;
-
-            color: #00ffd0;
-
-            margin-bottom: 2rem;
-
-            box-shadow:
-                0 0 15px rgba(0,255,208,0.12),
-                inset 0 0 15px rgba(0,255,208,0.05);
-
-            position: relative;
-            z-index: 2;
-        }
-
-        .diagram-button h2 {
-            font-size: clamp(1.4rem, 2vw, 2.2rem);
 
             letter-spacing: 0.08em;
 
             text-transform: uppercase;
 
-            margin-bottom: 1rem;
-
-            position: relative;
-            z-index: 2;
+            color: #eeeeee;
         }
 
-        .diagram-button p {
-            max-width: 75%;
+        header h1 span {
+            color: #888888;
+        }
+
+        main {
+            flex: 1;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+
+            padding: 24px;
+        }
+
+        
+
+        .diagram-button {
+
+            text-decoration: none;
+
+            color: #eeeeee;
+
+            background: #1b1b1b;
+
+            border: 2px solid #555555;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
 
             text-align: center;
 
-            line-height: 1.6;
+            padding: 30px;
 
-            color: #8da3ad;
-
-            font-size: 0.95rem;
-
-            position: relative;
-            z-index: 2;
         }
 
-        .open {
-            margin-top: 2rem;
+        .diagram-button:hover {
+            background: #252525;
+            border-color: #aaaaaa;
+        }
 
-            padding: 0.7rem 1.5rem;
+        .number {
+            color: #777777;
 
-            border: 1px solid rgba(0,255,208,0.5);
-            border-radius: 4px;
+            font-size: 14px;
 
-            color: #00ffd0;
+            letter-spacing: 3px;
 
-            font-size: 0.75rem;
+            margin-bottom: 25px;
+        }
 
-            letter-spacing: 0.15em;
+        .diagram-button h2 {
+
+            font-size: clamp(1.3rem, 2vw, 2rem);
 
             text-transform: uppercase;
 
-            position: relative;
-            z-index: 2;
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
         }
 
+        .diagram-button p {
 
+            max-width: 400px;
+
+            color: #999999;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+        .open {
+
+            margin-top: 30px;
+
+            padding: 10px 20px;
+
+            border: 1px solid #666666;
+
+            color: #cccccc;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+    
         @media (max-width: 800px) {
 
             body {
@@ -290,88 +158,103 @@
             }
 
             main {
+
                 grid-template-columns: 1fr;
 
-                min-height: auto;
+                padding: 15px;
 
-                padding: 1rem;
-
-                gap: 1rem;
             }
 
             .diagram-button {
-                min-height: 250px;
+
+                min-height: 220px;
+
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
     <header>
-        <h1>DIAGRAMAS <span>FLEWGRAPH</span></h1>
+
+        <h1>
+            DIAGRAMAS <span>FLEWGRAPH</span>
+        </h1>
+
     </header>
+
 
     <main>
 
+
         <a href="two.html" class="diagram-button">
 
-            <div class="number">01</div>
+            <div class="number">
+                01
+            </div>
 
-            <div class="icon">⌬</div>
-
-            <h2>Optimización</h2>
+            <h2>
+                Optimización
+            </h2>
 
             <p>
                 Optimización de flotas, energía,
-                combustible y recursos mediante
-                teoría de grafos.
+                combustible, suministros y recursos.
             </p>
 
             <div class="open">
-                Abrir diagrama →
+                Abrir diagrama
             </div>
 
         </a>
+
 
 
         <a href="three.html" class="diagram-button">
 
-            <div class="number">02</div>
+            <div class="number">
+                02
+            </div>
 
-            <div class="icon">◈</div>
-
-            <h2>Generación de ingresos</h2>
+            <h2>
+                Generación de dinero
+            </h2>
 
             <p>
                 Modelo de negocio, monetización,
-                suscripciones, servicios premium
-                y expansión de la plataforma.
+                servicios y crecimiento del software.
             </p>
 
             <div class="open">
-                Abrir diagrama →
+                Abrir diagrama
             </div>
 
         </a>
 
 
+
         <a href="four.html" class="diagram-button">
 
-            <div class="number">03</div>
+            <div class="number">
+                03
+            </div>
 
-            <div class="icon">◇</div>
-
-            <h2>Captación de clientes</h2>
+            <h2>
+                Obtención de clientes
+            </h2>
 
             <p>
-                Identificación de empresas,
-                análisis de oportunidades,
+                Búsqueda de empresas, oportunidades,
                 conversión y fidelización.
             </p>
 
             <div class="open">
-                Abrir diagrama →
+                Abrir diagrama
             </div>
 
         </a>
